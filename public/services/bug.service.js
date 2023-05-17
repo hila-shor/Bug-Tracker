@@ -1,8 +1,9 @@
 
-import {storageService} from './async-storage.service.js'
-import {utilService} from './util.service.js'
+import { storageService } from './async-storage.service.js'
+import { utilService } from './util.service.js'
 
 const STORAGE_KEY = 'bugDB'
+const BASE_URL = '/api/bug/'
 
 export const bugService = {
     query,
@@ -13,18 +14,20 @@ export const bugService = {
 
 
 function query() {
-    return storageService.query(STORAGE_KEY)
+    return axios.get(BASE_URL)
+        .then(res => res.data)
 }
 function getById(bugId) {
-    return storageService.get(STORAGE_KEY, bugId)
+    return axios.get(BASE_URL + bugId)
+        .then(res => res.data)
 }
 function remove(bugId) {
-    return storageService.remove(STORAGE_KEY, bugId)
+    return axios.get(BASE_URL + bugId + '/remove')
 }
 function save(bug) {
+    let queryParams = `?title=${bug.title}&description=${bug.description}&severity=${bug.severity}`
     if (bug._id) {
-        return storageService.put(STORAGE_KEY, bug)
-    } else {
-        return storageService.post(STORAGE_KEY, bug)
+        queryParams += `&_id=${bug._id}&createdAt=${bug.createdAt}`
     }
+    return axios.get(BASE_URL + 'save' + queryParams).then(res => res.data)
 }

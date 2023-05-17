@@ -19,7 +19,9 @@ function get(bugId) {
 }
 
 function remove(bugId) {
+  // const bugToDelete = bugs.find(bug => bug._id === bugId)
   bugs = bugs.filter(bug => bug._id !== bugId)
+
   return _writebugsToFile()
 }
 

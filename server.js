@@ -1,6 +1,6 @@
 const express = require('express')
 var cookieParser = require('cookie-parser')
-const bugServise = require('./services/bug.service.js')
+const bugService = require('./services/bug.service.js')
 
 const app = express()
 
@@ -23,7 +23,7 @@ app.get('/api/hello', (req, res) => {
 
 //List
 app.get('/api/bug', (req, res) => {
-  bugServise.query().then((bugs) => {
+  bugService.query().then((bugs) => {
     res.send(bugs)
   })
 })
@@ -36,14 +36,14 @@ app.get('/api/bug/save', (req, res) => {
     severity: +req.query.severity,
     _id: req.query._id
   }
-  bugServise.save(bug).then((savedBug) => {
+  bugService.save(bug).then((savedBug) => {
     res.send(savedBug)
   })
 })
 //Delete
 app.get('/api/bug/:bugId/remove', (req, res) => {
   const { bugId } = req.params
-  bugServise.remove(bugId).then(() => {
+  bugService.remove(bugId).then(() => {
     res.send('bug removed successfully')
   })
 })
@@ -52,7 +52,7 @@ app.get('/api/bug/:bugId/remove', (req, res) => {
 app.get('/api/bug/:bugId', (req, res) => {
   // console.log('req.params from Read: ', req.params)
   const { bugId } = req.params
-  bugServise.get(bugId).then((bug) => {
+  bugService.get(bugId).then((bug) => {
     res.send(bug)
   })
 })

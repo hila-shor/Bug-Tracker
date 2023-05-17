@@ -1,19 +1,5 @@
 [
   {
-    "_id": "b-001",
-    "title": "Cannot save a car",
-    "description": "problem when clicking Save",
-    "severity": "3",
-    "createdAt": "1542107359454"
-  },
-  {
-    "_id": "b-002",
-    "title": "Incorrect login validation",
-    "description": "Validation error when entering credentials",
-    "severity": "2",
-    "createdAt": "1542107359464"
-  },
-  {
     "_id": "b-003",
     "title": "Missing images in gallery",
     "description": "Images not displaying in the gallery",
@@ -40,5 +26,12 @@
     "description": "Certain data fields not appearing in generated reports",
     "severity": "1",
     "createdAt": "1542107359504"
+  },
+  {
+    "title": "hgzjsfd",
+    "description": "kuv jgtuyrytu kyuiuy",
+    "severity": 4,
+    "_id": "C1N68",
+    "createdAt": 1684314378077
   }
 ]
