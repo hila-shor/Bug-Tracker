@@ -1,0 +1,17 @@
+[
+  {
+    "_id": "c101",
+    "vendor": "Subaki",
+    "speed": 120
+  },
+  {
+    "_id": "c102",
+    "vendor": "Mitsubali",
+    "speed": 120
+  },
+  {
+    "_id": "c103",
+    "vendor": "Berrari",
+    "speed": 200
+  }
+]

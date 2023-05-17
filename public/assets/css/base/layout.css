@@ -1,0 +1,29 @@
+.app-container{
+  display: grid;
+  grid-template-rows:7rem 1fr auto;
+  min-height: 100vh;
+}
+
+header{
+  grid-row: 1;
+}
+.main-content{
+  grid-row: 2;
+}
+
+footer{
+  grid-row: 3;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1.6rem 1fr 1.6rem;
+}
+
+.main-layout>* {
+  grid-column: 2;
+}
+
+.main-layout .full {
+  grid-column: 1/-1;
+}
