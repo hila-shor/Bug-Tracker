@@ -1,8 +1,8 @@
 
-import { storageService } from './async-storage.service.js'
-import { utilService } from './util.service.js'
+// import { storageService } from './async-storage.service.js'
+// import { utilService } from './util.service.js'
 
-const STORAGE_KEY = 'bugDB'
+// const STORAGE_KEY = 'bugDB'
 const BASE_URL = '/api/bug/'
 
 export const bugService = {
@@ -10,12 +10,27 @@ export const bugService = {
     getById,
     save,
     remove,
+    getDefaultFilter,
+    getPDF
 }
 
-
-function query() {
+function query(filterBy = getDefaultFilter()) {
     return axios.get(BASE_URL)
         .then(res => res.data)
+        .then(bugs => {
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt, 'i')
+                bugs = bugs.filter(bug => {
+                    return regex.test(bug.title.toLowerCase()) || regex.test(bug.description.toLowerCase())
+                })
+            }
+            if (filterBy.severity) {
+                bugs = bugs.filter(bug => {
+                    return +bug.severity >= +filterBy.severity
+                })
+            }
+            return bugs
+        })
 }
 function getById(bugId) {
     return axios.get(BASE_URL + bugId)
@@ -31,3 +46,34 @@ function save(bug) {
     }
     return axios.get(BASE_URL + 'save' + queryParams).then(res => res.data)
 }
+
+// function getPDF() {
+//     console.log('getpdf function')
+//     return axios.get(BASE_URL + 'save_pdf')
+// }
+
+// import axios from 'axios'
+
+function getPDF() {
+    console.log('getpdf function');
+    return axios({
+        method: 'get',
+        url: BASE_URL + 'save_pdf',
+        responseType: 'blob'
+    })
+        .then((response) => {
+            const url = URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'output-t.pdf';
+            link.click();
+        })
+        .catch((error) => {
+            console.error('Error while downloading PDF:', error);
+        });
+}
+
+function getDefaultFilter() {
+    return { txt: '', severity: 0 }
+}
+

@@ -5,22 +5,19 @@
 /* Components */
 @import 'cmps/app-header.css';
 @import 'cmps/app-footer.css';
+@import 'cmps/bug-list.css';
+@import 'cmps/bug-filter.css';
 
 
 /* Views */
 @import 'views/about-us.css';
+@import 'views/bug-index.css';
 
 /* home */
 .home-page {
     text-align: center;
     margin-block-start: 2.5rem;
 }
-
-
-
-
-
-
 
 .main-title {
     text-align: center;
@@ -53,25 +50,11 @@
 }
 
 
-.bug-list {
-    list-style: none;
+
+
+
+/* helpers */
+
+.flex{
     display: flex;
-    flex-wrap: wrap;
 }
-
-.bug-preview {
-    background-color: #333;
-    color: whitesmoke;
-    border-radius: .2em;
-    margin: 5px;
-    text-align: center;
-    padding: 5px;
-}
-.bug-preview a {
-    color: lightskyblue;
-}
-
-.bug-preview span {
-    color: gold;
-}
-

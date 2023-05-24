@@ -1,0 +1,10 @@
+.action-btn{
+  padding-block-end: 1rem;
+  margin-block: 1rem;
+}
+
+.action-btn>*{
+  padding: 0.3rem;
+  margin-inline-end: 0.5rem;
+  
+}

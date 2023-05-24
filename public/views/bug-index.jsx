@@ -1,20 +1,34 @@
+const { useState, useEffect } = React
+
 import { bugService } from '../services/bug.service.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { BugList } from '../cmps/bug-list.jsx'
 
-const { useState, useEffect } = React
+import { BugList } from '../cmps/bug-list.jsx'
+import { BugFilter } from '../cmps/bug-filter.jsx'
+
+
 
 export function BugIndex() {
 
     const [bugs, setBugs] = useState([])
+    const [isTableMode, setIsTableMode] = useState(true)
+    const [selectedBugs, setSelectedBugs] = useState([])
+    const [filterBy , setFilterBy] = useState(bugService.getDefaultFilter())
+    // console.log('from bug-index cmp, filterBy: ', filterBy );
+    // console.log('selectedBugs: ',selectedBugs)
 
     useEffect(() => {
         loadBugs()
-    }, [])
+    }, [filterBy])
 
 
     function loadBugs() {
-        bugService.query().then(setBugs)
+        bugService.query(filterBy)
+        .then(setBugs)
+        .catch(err => {
+            console.log('Error from loadBugs ->', err);
+            showErrorMsg('Failed to load bugs');
+        })
     }
 
     function onRemoveBug(bugId) {
@@ -66,15 +80,44 @@ export function BugIndex() {
             })
     }
 
+    function onSetViewMode(){
+        setIsTableMode(!isTableMode )
+    }
+
+    function handleSelectBug (bugId) {
+        // console.log('from bug-index cmp handleselectBug(), : ', bugId)
+        if (selectedBugs.includes(bugId)) {
+            setSelectedBugs(selectedBugs.filter((id) => id !== bugId));
+        } else {
+            setSelectedBugs([...selectedBugs, bugId]);
+        }
+        
+    }
+
+    function onSetFilter(filterBy) {
+        setFilterBy(filterBy)
+    }
+
     return (
         <main className='bug-index main-layout'>
-            <h3>Bugs App</h3>
-            <div>
-                <button onClick={onAddBug}>Add Bug ⛐</button>
-                <BugList bugs={bugs} onRemoveBug={onRemoveBug} onEditBug={onEditBug} />
+            
+            <BugFilter onSetFilter={onSetFilter}/> 
+            <div className='action-btn flex'>
+                <button onClick={onSetViewMode}>{isTableMode? 'Grid View':'Table View'}</button>
+                <button onClick={onAddBug}> + Add Bug</button>
+                <button onClick={bugService.getPDF}>Download as PDF</button>
+
+                {/* <button onClick={handleDownloadSelectedBugs}>Download Selected Bugs as PDF</button> */}
+            
             </div>
+            <BugList 
+            bugs={bugs} 
+            onRemoveBug={onRemoveBug} 
+            onEditBug={onEditBug} 
+            isTableMode={isTableMode}
+            handleSelectBug={handleSelectBug} />
+            
         </main>
     )
-
 
 }

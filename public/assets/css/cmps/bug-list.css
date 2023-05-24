@@ -1,0 +1,36 @@
+.ul-bug-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* grid-template-rows:400px; */
+  gap: 1em;
+}
+.bug-preview {
+  background-color: #333;
+  color: whitesmoke;
+  border-radius: .2em;
+  margin: 5px;
+  text-align: center;
+  padding: 5px;
+}
+.bug-preview a {
+  color: rgb(244, 208, 67);
+}
+
+.bug-preview span {
+  color: gold;
+}
+
+.bug-preview img {
+  width: 40px;
+  height: 40px;
+}
+
+table, th, td{
+  border: 1px solid black ;
+  border-collapse: collapse;
+}
+
+table{
+  width: 90vw;
+}

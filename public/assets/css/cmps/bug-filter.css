@@ -1,0 +1,9 @@
+.bug-filter{
+  padding-block: 1rem;
+  background-color:rgb(244, 208, 67, 0.6) ;
+}
+
+.filter-fields>*{
+  margin-inline-end: 0.5rem;
+
+}
