@@ -21,7 +21,6 @@ function get(bugId) {
 }
 
 function remove(bugId) {
-  // const bugToDelete = bugs.find(bug => bug._id === bugId)
   bugs = bugs.filter(bug => bug._id !== bugId)
 
   return _writebugsToFile()
@@ -29,11 +28,10 @@ function remove(bugId) {
 
 function save(bug) {
   if (bug._id) {
-    const bugToUpdate = bugs.find(currbug => currbug._id === bug._id)
+    const bugToUpdate = bugs.find(currBug => currBug._id === bug._id)
     bugToUpdate.title = bug.title
     bugToUpdate.description = bug.description
     bugToUpdate.severity = bug.severity
-
     return _writebugsToFile().then(() => bugToUpdate)
   } else {
     bug._id = _makeId()

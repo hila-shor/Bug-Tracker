@@ -8,10 +8,10 @@ const BASE_URL = '/api/bug/'
 export const bugService = {
     query,
     getById,
-    save,
     remove,
-    getDefaultFilter,
-    getPDF
+    save,
+    getPDF,
+    getDefaultFilter
 }
 
 function query(filterBy = getDefaultFilter()) {
@@ -32,27 +32,23 @@ function query(filterBy = getDefaultFilter()) {
             return bugs
         })
 }
+
 function getById(bugId) {
     return axios.get(BASE_URL + bugId)
         .then(res => res.data)
 }
+
 function remove(bugId) {
-    return axios.get(BASE_URL + bugId + '/remove')
+    return axios.delete(BASE_URL + bugId)
 }
+
 function save(bug) {
-    let queryParams = `?title=${bug.title}&description=${bug.description}&severity=${bug.severity}`
     if (bug._id) {
-        queryParams += `&_id=${bug._id}&createdAt=${bug.createdAt}`
+        return axios.put(BASE_URL + `${bug._id}`, bug).then(res => res.data)
+    } else {
+        return axios.post(BASE_URL, bug).then(res => res.data)
     }
-    return axios.get(BASE_URL + 'save' + queryParams).then(res => res.data)
 }
-
-// function getPDF() {
-//     console.log('getpdf function')
-//     return axios.get(BASE_URL + 'save_pdf')
-// }
-
-// import axios from 'axios'
 
 function getPDF() {
     console.log('getpdf function');

@@ -1,23 +1,9 @@
 [
   {
-    "_id": "b-001",
-    "title": "Null pointer exception",
-    "description": "Application throws a null pointer exception when clicking on 'Submit' button",
-    "severity": "3",
-    "createdAt": "1654098436291"
-  },
-  {
-    "_id": "b-002",
-    "title": "Incorrect calculations",
-    "description": "The application is producing incorrect calculation results in the finance module",
-    "severity": "2",
-    "createdAt": "1736289510432"
-  },
-  {
     "_id": "b-003",
     "title": "Missing images",
     "description": "Certain images are not displaying on the product detail page",
-    "severity": "1",
+    "severity": 5,
     "createdAt": "1824165392759"
   },
   {
@@ -56,10 +42,10 @@
     "createdAt": "2017593846273"
   },
   {
-    "title": "null",
-    "description": "null",
-    "severity": 0,
-    "_id": "fJAvY",
-    "createdAt": 1684913497992
+    "title": "babiiiiiiiii",
+    "description": "mjsdgf kjhgriuty oiuoqw zxnbc ",
+    "severity": 5,
+    "_id": "BHQW4",
+    "createdAt": 1685265172522
   }
 ]

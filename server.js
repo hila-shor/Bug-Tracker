@@ -48,19 +48,33 @@ app.get('/api/bug/save_pdf', (req, res) => {
 
 
 //Save (with query - after the ? in the url)
-app.get('/api/bug/save', (req, res) => {
-  const bug = {
-    title: req.query.title,
-    description: req.query.description,
-    severity: +req.query.severity,
-    _id: req.query._id
-  }
+// app.get('/api/bug/save', (req, res) => {
+//   const bug = {
+//     title: req.query.title,
+//     description: req.query.description,
+//     severity: +req.query.severity,
+//     _id: req.query._id
+//   }
+//   bugService.save(bug).then((savedBug) => {
+//     res.send(savedBug)
+//   })
+// })
+//Update
+app.put('/api/bug/:bugId', (req, res) => {
+  const bug = req.body
+  bugService.save(bug).then((savedBug) => {
+    res.send(savedBug)
+  })
+})
+//Create
+app.post('/api/bug', (req, res) => {
+  const bug = req.body
   bugService.save(bug).then((savedBug) => {
     res.send(savedBug)
   })
 })
 //Delete
-app.get('/api/bug/:bugId/remove', (req, res) => {
+app.delete('/api/bug/:bugId', (req, res) => {
   const { bugId } = req.params
   bugService.remove(bugId).then(() => {
     res.send('bug removed successfully')
