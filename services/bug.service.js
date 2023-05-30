@@ -11,8 +11,21 @@ module.exports = {
   createPDF
 }
 
-function query() {
-  return Promise.resolve(bugs)
+function query(filterBy) {
+  let filteredBugs = bugs
+
+  if (filterBy.txt) {
+    const regex = new RegExp(filterBy.txt, 'i')
+    filteredBugs = filteredBugs.filter(bug => {
+      return regex.test(bug.title.toLowerCase()) || regex.test(bug.description.toLowerCase())
+    })
+  }
+  if (filterBy.severity) {
+    filteredBugs = filteredBugs.filter(bug => {
+      return +bug.severity >= +filterBy.severity
+    })
+  }
+  return Promise.resolve(filteredBugs)
 }
 
 function get(bugId) {

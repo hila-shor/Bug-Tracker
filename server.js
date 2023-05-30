@@ -33,8 +33,9 @@ app.get('/favicon.ico', (req, res) => {
 
 //List
 app.get('/api/bug', (req, res) => {
-  bugService.query().then((bugs) => {
-
+  const filterBy = req.query
+  // console.log(' filterBy from server \'get\' route ', filterBy)
+  bugService.query(filterBy).then((bugs) => {
     res.send(bugs)
   })
 })

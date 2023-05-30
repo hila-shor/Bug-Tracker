@@ -9,7 +9,7 @@ module.exports = {
   save
 }
 
-function query() {
+function query(filterBy) {
   return Promise.resolve(bugs)
 }
 

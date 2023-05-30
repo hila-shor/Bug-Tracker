@@ -15,22 +15,23 @@ export const bugService = {
 }
 
 function query(filterBy = getDefaultFilter()) {
-    return axios.get(BASE_URL)
+    const queryParams = `?txt=${filterBy.txt}&severity=${filterBy.severity}`
+    return axios.get(BASE_URL + queryParams)
         .then(res => res.data)
-        .then(bugs => {
-            if (filterBy.txt) {
-                const regex = new RegExp(filterBy.txt, 'i')
-                bugs = bugs.filter(bug => {
-                    return regex.test(bug.title.toLowerCase()) || regex.test(bug.description.toLowerCase())
-                })
-            }
-            if (filterBy.severity) {
-                bugs = bugs.filter(bug => {
-                    return +bug.severity >= +filterBy.severity
-                })
-            }
-            return bugs
-        })
+    // .then(bugs => {
+    //     if (filterBy.txt) {
+    //         const regex = new RegExp(filterBy.txt, 'i')
+    //         bugs = bugs.filter(bug => {
+    //             return regex.test(bug.title.toLowerCase()) || regex.test(bug.description.toLowerCase())
+    //         })
+    //     }
+    //     if (filterBy.severity) {
+    //         bugs = bugs.filter(bug => {
+    //             return +bug.severity >= +filterBy.severity
+    //         })
+    //     }
+    //     return bugs
+    // })
 }
 
 function getById(bugId) {
