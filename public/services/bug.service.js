@@ -15,23 +15,9 @@ export const bugService = {
 }
 
 function query(filterBy = getDefaultFilter()) {
-    const queryParams = `?txt=${filterBy.txt}&severity=${filterBy.severity}`
+    const queryParams = `?txt=${filterBy.txt}&severity=${filterBy.severity}&pageIdx=${filterBy.pageIdx}`
     return axios.get(BASE_URL + queryParams)
         .then(res => res.data)
-    // .then(bugs => {
-    //     if (filterBy.txt) {
-    //         const regex = new RegExp(filterBy.txt, 'i')
-    //         bugs = bugs.filter(bug => {
-    //             return regex.test(bug.title.toLowerCase()) || regex.test(bug.description.toLowerCase())
-    //         })
-    //     }
-    //     if (filterBy.severity) {
-    //         bugs = bugs.filter(bug => {
-    //             return +bug.severity >= +filterBy.severity
-    //         })
-    //     }
-    //     return bugs
-    // })
 }
 
 function getById(bugId) {
@@ -71,6 +57,6 @@ function getPDF() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', severity: 0 }
+    return { txt: '', severity: 0, pageIdx: 1 }
 }
 

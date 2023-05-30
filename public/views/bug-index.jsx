@@ -11,6 +11,7 @@ import { BugFilter } from '../cmps/bug-filter.jsx'
 export function BugIndex() {
 
     const [bugs, setBugs] = useState([])
+    const [totalPages, setTotalPages ]= useState(null)
     const [isTableMode, setIsTableMode] = useState(true)
     const [selectedBugs, setSelectedBugs] = useState([])
     const [filterBy , setFilterBy] = useState(bugService.getDefaultFilter())
@@ -24,7 +25,14 @@ export function BugIndex() {
 
     function loadBugs() {
         bugService.query(filterBy)
-        .then(setBugs)
+        .then(({ filteredBugs, totalPages }) => {
+            console.log('filteredBugs from bug-index, query res: ',filteredBugs)
+            setBugs(filteredBugs)
+            // You can do something with the totalPages value here
+            console.log('Total Pages:', totalPages)
+            setTotalPages(totalPages)
+        })
+        // .then(setBugs)
         .catch(err => {
             console.log('Error from loadBugs ->', err);
             showErrorMsg('Failed to load bugs');
@@ -100,7 +108,7 @@ export function BugIndex() {
     return (
         <main className='bug-index main-layout'>
             
-            <BugFilter onSetFilter={onSetFilter}/> 
+            <BugFilter onSetFilter={onSetFilter} totalPages={totalPages}/> 
             <div className='action-btn flex'>
                 <button onClick={onSetViewMode}>{isTableMode? 'Grid View':'Table View'}</button>
                 <button onClick={onAddBug}> + Add Bug</button>

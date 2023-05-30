@@ -47,5 +47,41 @@
     "severity": 5,
     "_id": "BHQW4",
     "createdAt": 1685265172522
+  }, 
+  {
+    "_id": "b-009",
+    "title": "Login button not working",
+    "description": "Clicking on the login button does not trigger any action",
+    "severity": "3",
+    "createdAt": "2017593846274"
+  },
+  {
+    "_id": "b-010",
+    "title": "Broken image in profile",
+    "description": "The user's profile picture is not displaying properly",
+    "severity": "1",
+    "createdAt": "2017593846275"
+  },
+  {
+    "_id": "b-011",
+    "title": "Search results not updating",
+    "description": "Entering a new search query does not update the search results",
+    "severity": "2",
+    "createdAt": "2017593846276"
+  },
+  {
+    "_id": "b-012",
+    "title": "Missing validation message",
+    "description": "Submitting the form without filling in required fields does not show any error message",
+    "severity": "3",
+    "createdAt": "2017593846277"
+  },
+  {
+    "_id": "b-013",
+    "title": "Incorrect data formatting",
+    "description": "Dates are not displayed in the correct format on the dashboard",
+    "severity": "2",
+    "createdAt": "2017593846278"
   }
+  
 ]

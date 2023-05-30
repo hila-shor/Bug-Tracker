@@ -1,9 +1,10 @@
 const { useState, useEffect, useRef } = React
 import {bugService} from './../services/bug.service.js'
 
-export function BugFilter({ onSetFilter}){
+export function BugFilter({ onSetFilter, totalPages}){
 
   const [filterByToEdit, setFilterByToEdit ]= useState(bugService.getDefaultFilter())
+  // const [pageNum, setPageNum] = useState(1) // Add state for page number
   const elInputRef = useRef(null)
   // console.log('bug-filter cmp, filterByToEdit: ',filterByToEdit )
 
@@ -25,6 +26,10 @@ export function BugFilter({ onSetFilter}){
     })
   }
 
+  // function handlePageNumChange({target}) {
+  //   setPageNum(+target.value)
+  // }
+
   return <section className="bug-filter main-layout full ">
             <h2> Filter your bugs</h2>
             <div className='filter-fields'>
@@ -37,8 +42,22 @@ export function BugFilter({ onSetFilter}){
                 name='txt'
                 value={filterByToEdit.txt}/>
               
-              <input type="range" min="0" max="10" value={filterByToEdit.severity} name="severity"
-              onChange={handleChange}/>
+              <input type="range" 
+                  min="0" 
+                  max="10" 
+                  value={filterByToEdit.severity} name="severity"
+                  onChange={handleChange}/>
+
+              <label>Page
+                <input
+                  type="number"
+                  name="pageIdx"
+                  min="1"
+                  max={totalPages}
+                  value={filterByToEdit.pageIdx}
+                  onChange={handleChange}/>
+              </label>
+              
             </div>
         </section>
 }

@@ -2,6 +2,9 @@ const PDFDocument = require('pdfkit')
 const fs = require('fs');
 var bugs = require('../data/bugs.json')
 
+const PAGE_SIZE = 3
+
+
 
 module.exports = {
   query,
@@ -13,6 +16,7 @@ module.exports = {
 
 function query(filterBy) {
   let filteredBugs = bugs
+  let totalPages = 0
 
   if (filterBy.txt) {
     const regex = new RegExp(filterBy.txt, 'i')
@@ -25,7 +29,13 @@ function query(filterBy) {
       return +bug.severity >= +filterBy.severity
     })
   }
-  return Promise.resolve(filteredBugs)
+  if (filterBy.pageIdx !== undefined) {
+    totalPages = Math.ceil(filteredBugs.length / PAGE_SIZE)
+    const startIdx = filterBy.pageIdx * PAGE_SIZE - PAGE_SIZE
+    filteredBugs = filteredBugs.slice(startIdx, PAGE_SIZE + startIdx)
+    return Promise.resolve({ filteredBugs, totalPages })
+  }
+  return Promise.resolve({ filteredBugs, totalPages })
 }
 
 function get(bugId) {
