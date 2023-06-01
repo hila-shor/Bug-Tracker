@@ -26,9 +26,6 @@ export function BugFilter({ onSetFilter, totalPages, setSort}){
     })
   }
 
-  // function handlePageNumChange({target}) {
-  //   setPageNum(+target.value)
-  // }
 
   function onSetSort({target}){
     setSort(target.value)

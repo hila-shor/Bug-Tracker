@@ -11,7 +11,8 @@ export const bugService = {
     remove,
     save,
     getPDF,
-    getDefaultFilter
+    getDefaultFilter,
+    getEmptyBug
 }
 
 function query(filterBy = getDefaultFilter()) {
@@ -33,6 +34,7 @@ function save(bug) {
     if (bug._id) {
         return axios.put(BASE_URL + `${bug._id}`, bug).then(res => res.data)
     } else {
+        console.log('axios.post')
         return axios.post(BASE_URL, bug).then(res => res.data)
     }
 }
@@ -59,4 +61,14 @@ function getPDF() {
 function getDefaultFilter() {
     return { txt: '', severity: 0, pageIdx: 1 }
 }
+
+function getEmptyBug(title = '', description = '', severity = '', labels = []) {
+    return {
+        title,
+        description,
+        severity,
+        labels
+    }
+}
+
 

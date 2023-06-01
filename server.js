@@ -43,26 +43,12 @@ app.get('/api/bug', (req, res) => {
 app.get('/api/bug/save_pdf', (req, res) => {
   console.log('on app.get..... in server.js')
   bugService.createPDF(res)
-  // res.send()
 })
 
-
-
-//Save (with query - after the ? in the url)
-// app.get('/api/bug/save', (req, res) => {
-//   const bug = {
-//     title: req.query.title,
-//     description: req.query.description,
-//     severity: +req.query.severity,
-//     _id: req.query._id
-//   }
-//   bugService.save(bug).then((savedBug) => {
-//     res.send(savedBug)
-//   })
-// })
 //Update
 app.put('/api/bug/:bugId', (req, res) => {
   const bug = req.body
+  console.log(req.body)
   bugService.save(bug).then((savedBug) => {
     res.send(savedBug)
   })
@@ -70,6 +56,7 @@ app.put('/api/bug/:bugId', (req, res) => {
 //Create
 app.post('/api/bug', (req, res) => {
   const bug = req.body
+  console.log('bug from app.post - server.js ', bug)
   bugService.save(bug).then((savedBug) => {
     res.send(savedBug)
   })

@@ -2,9 +2,8 @@ const { Link } = ReactRouterDOM
 
 import { BugPreview } from "./bug-preview.jsx"
 
-export function BugList({ bugs, onRemoveBug, onEditBug , isTableMode, handleSelectBug}) {
+export function BugList({ bugs, onRemoveBug , isTableMode, handleSelectBug}) {
 
-    // console.log('bugs from bug-list: ', bugs)
     return <section className="bug-list">
             {!isTableMode &&<ul className="ul-bug-list">
                 {bugs.map(bug =>
@@ -12,7 +11,7 @@ export function BugList({ bugs, onRemoveBug, onEditBug , isTableMode, handleSele
                                     <BugPreview bug={bug} />
                                     <div>
                                         <button onClick={() => { onRemoveBug(bug._id) }}>x</button>
-                                        <button onClick={() => { onEditBug(bug) }}>Edit</button>
+                                        <Link className="bug-edit-link btn" to={`/bug/edit/${bug._id}`}>Edit</Link>
                                     </div>
                                     <Link to={`/bug/${bug._id}`}>Details</Link>
                                 </li>)}
@@ -20,6 +19,7 @@ export function BugList({ bugs, onRemoveBug, onEditBug , isTableMode, handleSele
             {isTableMode && <table>
                                 <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Title</th>
                                     <th>Desc</th>
                                     <th>Severity</th>
@@ -34,7 +34,6 @@ export function BugList({ bugs, onRemoveBug, onEditBug , isTableMode, handleSele
                                             bug ={bug} 
                                             isTableMode={isTableMode} 
                                             onRemoveBug={onRemoveBug} 
-                                            onEditBug={onEditBug}
                                             handleSelectBug={handleSelectBug}/>
                                     )}
                                 </tbody>

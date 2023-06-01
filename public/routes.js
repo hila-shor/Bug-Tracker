@@ -1,24 +1,33 @@
-import {HomePage} from './views/home-page.jsx'
-import {AboutUs} from './views/about-us.jsx'
-import {BugIndex} from './views/bug-index.jsx'
-import {BugDetails} from './views/bug-details.jsx'
+import { HomePage } from './views/home-page.jsx'
+import { AboutUs } from './views/about-us.jsx'
+import { BugIndex } from './views/bug-index.jsx'
+import { BugDetails } from './views/bug-details.jsx'
+import { BugEdit } from './views/bug-edit.jsx'
 
 
 export default [
     {
-        path:'/',
+        path: '/',
         component: HomePage,
     },
     {
-        path:'/bug',
+        path: '/bug',
         component: BugIndex,
     },
     {
-        path:'/bug/:bugId',
+        path: '/bug/edit',
+        component: BugEdit,
+    },
+    {
+        path: '/bug/edit/:bugId',
+        component: BugEdit,
+    },
+    {
+        path: '/bug/:bugId',
         component: BugDetails,
     },
     {
-        path:'/about',
+        path: '/about',
         component: AboutUs,
     }
 ]

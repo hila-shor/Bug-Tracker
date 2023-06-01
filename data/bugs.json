@@ -3,7 +3,7 @@
     "_id": "b-003",
     "title": "Missing images",
     "description": "Certain images are not displaying on the product detail page",
-    "severity": 5,
+    "severity": "3",
     "createdAt": "1824165392759",
     "labels": [
       "ui",
@@ -169,5 +169,57 @@
       "font",
       "consistency"
     ]
+  },
+  {
+    "_id": "YlBxF",
+    "createdAt": 1685609377562
+  },
+  {
+    "title": "put test",
+    "description": "lisf lodf",
+    "severity": 2,
+    "_id": "oaFJO",
+    "createdAt": 1685609740444
+  },
+  {
+    "title": "POST TEST",
+    "description": " TEST POST hgf htr ytr",
+    "severity": 1,
+    "labels": [
+      "data",
+      "refresh",
+      "data loss"
+    ],
+    "_id": "pFiHs",
+    "createdAt": 1685611338401
+  },
+  {
+    "title": "PUT TEST",
+    "description": "PUT PUT PUT PUT",
+    "severity": 1,
+    "_id": "dHvqw",
+    "createdAt": 1685611702398
+  },
+  {
+    "title": "TEST ADD BUG",
+    "description": "hgdfic",
+    "severity": "1",
+    "labels": [
+      "kghfdgv",
+      "hjgafdsv"
+    ],
+    "_id": "ccKK7",
+    "createdAt": 1685622753091
+  },
+  {
+    "title": "vj,jhk",
+    "description": "yilyil",
+    "severity": "",
+    "labels": [
+      "tuktuik",
+      "fuktik"
+    ],
+    "_id": "p71Zn",
+    "createdAt": 1685630291029
   }
 ]

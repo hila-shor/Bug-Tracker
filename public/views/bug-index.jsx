@@ -1,4 +1,5 @@
 const { useState, useEffect } = React
+const {Link} = ReactRouterDOM
 
 import { bugService } from '../services/bug.service.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
@@ -52,40 +53,6 @@ export function BugIndex() {
                 showErrorMsg('Cannot remove bug')
             })
         }
-        
-        function onAddBug() {
-            const bug = {
-            title: prompt('Bug title?'),
-            description: prompt('Bug description'),
-            severity: +prompt('Bug severity?'),
-        }
-        bugService.save(bug)
-            .then(savedBug => {
-                console.log('Added Bug', savedBug)
-                setBugs([...bugs, savedBug])
-                showSuccessMsg('Bug added')
-            })
-            .catch(err => {
-                console.log('Error from onAddBug ->', err)
-                showErrorMsg('Cannot add bug')
-            })
-        }
-
-    function onEditBug(bug) {
-        const severity = +prompt('New severity?')
-        const bugToSave = { ...bug, severity }
-        bugService.save(bugToSave)
-            .then(savedBug => {
-                console.log('Updated Bug:', savedBug)
-                const bugsToUpdate = bugs.map(currBug => (currBug._id === savedBug._id) ? savedBug : currBug)
-                setBugs(bugsToUpdate)
-                showSuccessMsg('Bug updated')
-            })
-            .catch(err => {
-                console.log('Error from onEditBug ->', err)
-                showErrorMsg('Cannot update bug')
-            })
-    }
 
     function onSetViewMode(){
         setIsTableMode(!isTableMode )
@@ -122,16 +89,12 @@ export function BugIndex() {
             <BugFilter onSetFilter={onSetFilter} totalPages={totalPages} setSort={setSort}/> 
             <div className='action-btn flex'>
                 <button onClick={onSetViewMode}>{isTableMode? 'Grid View':'Table View'}</button>
-                <button onClick={onAddBug}> + Add Bug</button>
+                <Link className="add-link" to={`/bug/edit`}> + Add Bug Test</Link>
                 <button onClick={bugService.getPDF}>Download as PDF</button>
-
-                {/* <button onClick={handleDownloadSelectedBugs}>Download Selected Bugs as PDF</button> */}
-            
             </div>
             <BugList 
             bugs={bugs} 
             onRemoveBug={onRemoveBug} 
-            onEditBug={onEditBug} 
             isTableMode={isTableMode}
             handleSelectBug={handleSelectBug} />
             

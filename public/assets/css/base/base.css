@@ -45,3 +45,12 @@ object {
   outline: 1px solid gold
 }
 
+/* HELPERS */
+.btn{
+  color: black;
+  padding: 3px;
+  background-color: lightgrey;
+  border: 1px solid black;
+  display: inline-block;
+  margin-inline-start: 3px;
+}
