@@ -1,7 +1,7 @@
 const { useState, useEffect, useRef } = React
 import {bugService} from './../services/bug.service.js'
 
-export function BugFilter({ onSetFilter, totalPages}){
+export function BugFilter({ onSetFilter, totalPages, setSort}){
 
   const [filterByToEdit, setFilterByToEdit ]= useState(bugService.getDefaultFilter())
   // const [pageNum, setPageNum] = useState(1) // Add state for page number
@@ -30,8 +30,12 @@ export function BugFilter({ onSetFilter, totalPages}){
   //   setPageNum(+target.value)
   // }
 
+  function onSetSort({target}){
+    setSort(target.value)
+  }
+
   return <section className="bug-filter main-layout full ">
-            <h2> Filter your bugs</h2>
+            {/* <h2> Filter your bugs</h2> */}
             <div className='filter-fields'>
               <label htmlFor="title">Bug title</label>
               <input type="text"
@@ -57,6 +61,12 @@ export function BugFilter({ onSetFilter, totalPages}){
                   value={filterByToEdit.pageIdx}
                   onChange={handleChange}/>
               </label>
+
+              <select onChange={onSetSort}>
+                <option value="">Sorting By</option>
+                <option value="title">Title</option>
+                <option value="createdAt">Created Time</option>
+              </select>
               
             </div>
         </section>

@@ -21,13 +21,14 @@ export function BugDetails() {
     }, [])
 
     if (!bug) return <h1>loadings....</h1>
-    return bug && <div>
-        <h3>Bug Details 🐛</h3>
+    return bug && <section className='bug-details main-layout'>
+        <h3>Bug Details</h3>
+        <img src="assets/img/bug.png"/>
         <h4>{bug.title}</h4>
         <p>Description: <span>{bug.description}</span></p>
         <p>Severity: <span>{bug.severity}</span></p>
         <Link to="/bug">Back to List</Link>
-    </div>
+    </section>
 
 }
 

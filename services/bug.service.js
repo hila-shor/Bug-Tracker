@@ -2,7 +2,7 @@ const PDFDocument = require('pdfkit')
 const fs = require('fs');
 var bugs = require('../data/bugs.json')
 
-const PAGE_SIZE = 3
+const PAGE_SIZE = 20
 
 
 

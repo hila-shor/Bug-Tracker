@@ -26,10 +26,10 @@ export function BugIndex() {
     function loadBugs() {
         bugService.query(filterBy)
         .then(({ filteredBugs, totalPages }) => {
-            console.log('filteredBugs from bug-index, query res: ',filteredBugs)
+            // console.log('filteredBugs from bug-index, query res: ',filteredBugs)
             setBugs(filteredBugs)
             // You can do something with the totalPages value here
-            console.log('Total Pages:', totalPages)
+            // console.log('Total Pages:', totalPages)
             setTotalPages(totalPages)
         })
         // .then(setBugs)
@@ -105,10 +105,21 @@ export function BugIndex() {
         setFilterBy(filterBy)
     }
 
+    function setSort(sortBy){
+        if (sortBy === 'title') {
+            // bugs.sort((c1, c2) => c1.title.localeCompare(c2.title) * Direction)
+            const sortedBugs= bugs.slice().sort((c1, c2) => c1.title.localeCompare(c2.title))
+            setBugs(sortedBugs)
+        } else if (sortBy === 'createdAt') {
+            const sortedBugs = bugs.slice().sort((c1, c2) => (c1.createdAt - c2.createdAt))
+            setBugs(sortedBugs)
+            }
+    }
+
     return (
         <main className='bug-index main-layout'>
             
-            <BugFilter onSetFilter={onSetFilter} totalPages={totalPages}/> 
+            <BugFilter onSetFilter={onSetFilter} totalPages={totalPages} setSort={setSort}/> 
             <div className='action-btn flex'>
                 <button onClick={onSetViewMode}>{isTableMode? 'Grid View':'Table View'}</button>
                 <button onClick={onAddBug}> + Add Bug</button>

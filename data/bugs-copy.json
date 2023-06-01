@@ -1,0 +1,87 @@
+[
+  {
+    "_id": "b-003",
+    "title": "Missing images",
+    "description": "Certain images are not displaying on the product detail page",
+    "severity": 5,
+    "createdAt": "1824165392759"
+  },
+  {
+    "_id": "b-004",
+    "title": "Crash on startup",
+    "description": "App crashes immediately after launch",
+    "severity": "4",
+    "createdAt": "1542107359484"
+  },
+  {
+    "_id": "b-005",
+    "title": "Incorrect currency conversion",
+    "description": "Wrong exchange rate used for conversions",
+    "severity": "2",
+    "createdAt": "1542107359494"
+  },
+  {
+    "_id": "b-006",
+    "title": "Missing data in reports",
+    "description": "Certain data fields not appearing in generated reports",
+    "severity": "1",
+    "createdAt": "1542107359504"
+  },
+  {
+    "_id": "b-007",
+    "title": "Network connection error",
+    "description": "The app fails to establish a network connection on some devices",
+    "severity": "4",
+    "createdAt": "1935186529847"
+  },
+  {
+    "_id": "b-008",
+    "title": "UI glitch in settings",
+    "description": "The settings screen shows overlapping elements and misaligned text",
+    "severity": "2",
+    "createdAt": "2017593846273"
+  },
+  {
+    "title": "babiiiiiiiii",
+    "description": "mjsdgf kjhgriuty oiuoqw zxnbc ",
+    "severity": 5,
+    "_id": "BHQW4",
+    "createdAt": 1685265172522
+  }, 
+  {
+    "_id": "b-009",
+    "title": "Login button not working",
+    "description": "Clicking on the login button does not trigger any action",
+    "severity": "3",
+    "createdAt": "2017593846274"
+  },
+  {
+    "_id": "b-010",
+    "title": "Broken image in profile",
+    "description": "The user's profile picture is not displaying properly",
+    "severity": "1",
+    "createdAt": "2017593846275"
+  },
+  {
+    "_id": "b-011",
+    "title": "Search results not updating",
+    "description": "Entering a new search query does not update the search results",
+    "severity": "2",
+    "createdAt": "2017593846276"
+  },
+  {
+    "_id": "b-012",
+    "title": "Missing validation message",
+    "description": "Submitting the form without filling in required fields does not show any error message",
+    "severity": "3",
+    "createdAt": "2017593846277"
+  },
+  {
+    "_id": "b-013",
+    "title": "Incorrect data formatting",
+    "description": "Dates are not displayed in the correct format on the dashboard",
+    "severity": "2",
+    "createdAt": "2017593846278"
+  }
+  
+]

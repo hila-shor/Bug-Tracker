@@ -4,7 +4,7 @@ import { BugPreview } from "./bug-preview.jsx"
 
 export function BugList({ bugs, onRemoveBug, onEditBug , isTableMode, handleSelectBug}) {
 
-    console.log('bugs from bug-list: ', bugs)
+    // console.log('bugs from bug-list: ', bugs)
     return <section className="bug-list">
             {!isTableMode &&<ul className="ul-bug-list">
                 {bugs.map(bug =>
