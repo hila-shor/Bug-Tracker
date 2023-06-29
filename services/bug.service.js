@@ -21,6 +21,7 @@ function query(filterBy) {
   if (filterBy.txt) {
     const regex = new RegExp(filterBy.txt, 'i')
     filteredBugs = filteredBugs.filter(bug => {
+      // console.log('bug details: ', bug.title, bug.description)
       return regex.test(bug.title.toLowerCase()) || regex.test(bug.description.toLowerCase())
     })
   }
@@ -43,13 +44,28 @@ function get(bugId) {
   return Promise.resolve(bug)
 }
 
-function remove(bugId) {
-  bugs = bugs.filter(bug => bug._id !== bugId)
+function remove(bugId, loggedinUser) {
+  const idx = bugs.findIndex(bug => bug._id === bugId)
+  if (idx === -1) return Promise.reject('No such bug')
+  // only the bug owner can delete the bug
+  // if (bugs[idx].creator._id === loggedinUser._id && loggedinUser.fullname === 'Admin') bugs.splice(idx, 1)
+  if ((bugs[idx].creator._id === loggedinUser._id && loggedinUser.isAbleToDelete) || loggedinUser.fullname === 'Admin') bugs.splice(idx, 1)
+
+  else return Promise.reject('Only the owner or admin can delete the bug')
 
   return _writebugsToFile()
 }
 
-function save(bug) {
+function save(bug, loggedinUser) {
+  console.log('loggedinUser from save in bug.service: ', loggedinUser)
+  console.log('bug.creator._id: ', bug.creator._id)
+  console.log('bug.creator._id: ', loggedinUser._id)
+  console.log('bug.creator._id: ', bug.creator._id === loggedinUser._id)
+
+  if (!loggedinUser || bug.creator._id !== loggedinUser._id && loggedinUser.fullname !== "Admin") {
+    return Promise.reject('Only the owner or admin can update the bug');
+  }
+
   if (bug._id) {
     const bugToUpdate = bugs.find(currBug => currBug._id === bug._id)
     bugToUpdate.title = bug.title

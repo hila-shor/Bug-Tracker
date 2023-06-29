@@ -3,9 +3,14 @@ header {
   font-family: 'Courier New', Courier, monospace;
 }
 .nav-logo{
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns:3rem 20rem 1fr 1fr;
+  font-weight: bold;
   align-items: center;
+}
+.user{
+  grid-column: 4;
+  justify-self: end;
 }
 nav a{
   color: black;
@@ -26,4 +31,12 @@ nav a:hover{
 .brand-name img{
   width: 40px;
   height: 40px;
+}
+
+.login-form input::placeholder{
+  font-family: 'Courier New', Courier, monospace;
+}
+.login-form button{
+  font-family: 'Courier New', Courier, monospace;
+
 }

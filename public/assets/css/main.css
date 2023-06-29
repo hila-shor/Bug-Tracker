@@ -7,12 +7,14 @@
 @import 'cmps/app-footer.css';
 @import 'cmps/bug-list.css';
 @import 'cmps/bug-filter.css';
+@import 'cmps/login-signup.css';
 
 
 /* Views */
 @import 'views/about-us.css';
 @import 'views/bug-index.css';
 @import 'views/bug-details.css';
+/* @import 'views/llogin-signup.css'; */
 
 /* home */
 .home-page {

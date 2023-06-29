@@ -1,11 +1,17 @@
 const { useState, useEffect, useRef } = React
+// import { useHistory, useLocation } from 'react-router-dom'
+
 import {bugService} from './../services/bug.service.js'
+// import {bugService} from './../services/bug.service.local.js'
+
 
 export function BugFilter({ onSetFilter, totalPages, setSort}){
 
   const [filterByToEdit, setFilterByToEdit ]= useState(bugService.getDefaultFilter())
-  // const [pageNum, setPageNum] = useState(1) // Add state for page number
   const elInputRef = useRef(null)
+  // const location = useLocation()
+  // const history = useHistory()
+   // const [pageNum, setPageNum] = useState(1) // Add state for page number
   // console.log('bug-filter cmp, filterByToEdit: ',filterByToEdit )
 
   //when loading the bug-filter the serch input will be focus

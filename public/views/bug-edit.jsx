@@ -2,6 +2,8 @@ const {useState, useEffect} = React
 const {useNavigate , useParams , Link} = ReactRouterDOM
 
 import { bugService } from '../services/bug.service.js'
+// import { bugService } from '../services/bug.service.local.js'
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 
 export function BugEdit(){
@@ -30,12 +32,12 @@ export function BugEdit(){
     ev.preventDefault()
     bugService.save(bugToEdit)
     .then((bug)=>{
-      
+      showSuccessMsg('Bug updated')
       navigate('/bug')
     })
     .catch(err => {
     console.log('Error from onAddBug ->', err)
-    
+    showErrorMsg('Cannot update bug')
 })
 }
 

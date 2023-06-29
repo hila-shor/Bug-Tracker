@@ -2,6 +2,9 @@ const { useState, useEffect } = React
 const {Link} = ReactRouterDOM
 
 import { bugService } from '../services/bug.service.js'
+// import { bugService } from '../services/bug.service.local.js'
+
+
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 import { BugList } from '../cmps/bug-list.jsx'
@@ -23,11 +26,10 @@ export function BugIndex() {
         loadBugs()
     }, [filterBy])
 
-
     function loadBugs() {
         bugService.query(filterBy)
         .then(({ filteredBugs, totalPages }) => {
-            // console.log('filteredBugs from bug-index, query res: ',filteredBugs)
+            console.log('filteredBugs from bug-index, query res: ',filteredBugs)
             setBugs(filteredBugs)
             // You can do something with the totalPages value here
             // console.log('Total Pages:', totalPages)
@@ -100,5 +102,4 @@ export function BugIndex() {
             
         </main>
     )
-
 }

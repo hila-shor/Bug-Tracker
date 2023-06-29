@@ -3,6 +3,8 @@ import { AboutUs } from './views/about-us.jsx'
 import { BugIndex } from './views/bug-index.jsx'
 import { BugDetails } from './views/bug-details.jsx'
 import { BugEdit } from './views/bug-edit.jsx'
+import { UserIndex } from './views/user-index.jsx'
+
 
 
 export default [
@@ -29,5 +31,9 @@ export default [
     {
         path: '/about',
         component: AboutUs,
+    },
+    {
+        path: '/user',
+        component: UserIndex,
     }
 ]

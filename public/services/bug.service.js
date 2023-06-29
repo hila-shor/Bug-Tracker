@@ -17,6 +17,14 @@ export const bugService = {
 
 function query(filterBy = getDefaultFilter()) {
     const queryParams = `?txt=${filterBy.txt}&severity=${filterBy.severity}&pageIdx=${filterBy.pageIdx}`
+    // console.log('from front- bug.service, queryParams: ', queryParams)
+    
+
+    // TRYING TO UPDATE THE URL
+
+    // const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryParams
+    // window.history.pushState({ path: newUrl }, '', newUrl)
+
     return axios.get(BASE_URL + queryParams)
         .then(res => res.data)
 }

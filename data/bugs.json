@@ -3,12 +3,16 @@
     "_id": "b-003",
     "title": "Missing images",
     "description": "Certain images are not displaying on the product detail page",
-    "severity": "3",
+    "severity": "2",
     "createdAt": "1824165392759",
     "labels": [
       "ui",
       "images"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-004",
@@ -19,7 +23,11 @@
     "labels": [
       "crash",
       "startup"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-005",
@@ -30,7 +38,11 @@
     "labels": [
       "currency",
       "conversion"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-006",
@@ -41,7 +53,11 @@
     "labels": [
       "reports",
       "data"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-007",
@@ -52,7 +68,11 @@
     "labels": [
       "network",
       "connection"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-008",
@@ -63,7 +83,11 @@
     "labels": [
       "ui",
       "settings"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-009",
@@ -74,7 +98,11 @@
     "labels": [
       "ui",
       "login"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-010",
@@ -86,7 +114,11 @@
       "ui",
       "profile",
       "images"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-011",
@@ -97,7 +129,11 @@
     "labels": [
       "search",
       "results"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-012",
@@ -108,7 +144,11 @@
     "labels": [
       "validation",
       "form"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-014",
@@ -132,7 +172,11 @@
       "ui",
       "sorting",
       "table"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-016",
@@ -144,7 +188,11 @@
       "ui",
       "login",
       "error message"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-017",
@@ -156,7 +204,11 @@
       "data",
       "refresh",
       "data loss"
-    ]
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "_id": "b-018",
@@ -168,11 +220,11 @@
       "ui",
       "font",
       "consistency"
-    ]
-  },
-  {
-    "_id": "YlBxF",
-    "createdAt": 1685609377562
+    ],
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
     "title": "put test",
@@ -182,8 +234,8 @@
     "createdAt": 1685609740444
   },
   {
-    "title": "POST TEST",
-    "description": " TEST POST hgf htr ytr",
+    "title": "2 Put TEST",
+    "description": " 2 TEST POST",
     "severity": 1,
     "labels": [
       "data",
@@ -191,35 +243,37 @@
       "data loss"
     ],
     "_id": "pFiHs",
-    "createdAt": 1685611338401
+    "createdAt": 1685611338401,
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
-    "title": "PUT TEST",
-    "description": "PUT PUT PUT PUT",
-    "severity": 1,
-    "_id": "dHvqw",
-    "createdAt": 1685611702398
-  },
-  {
-    "title": "TEST ADD BUG",
-    "description": "hgdfic",
-    "severity": "1",
+    "title": "bagi bag",
+    "description": "test the loginToken",
+    "severity": "3",
     "labels": [
-      "kghfdgv",
-      "hjgafdsv"
+      "ui",
+      "images"
     ],
-    "_id": "ccKK7",
-    "createdAt": 1685622753091
+    "_id": "AKWw8",
+    "createdAt": 1687613896422,
+    "creator": {
+      "_id": "u103",
+      "fullname": "Hila Shor"
+    }
   },
   {
-    "title": "vj,jhk",
-    "description": "yilyil",
-    "severity": "",
-    "labels": [
-      "tuktuik",
-      "fuktik"
-    ],
-    "_id": "p71Zn",
-    "createdAt": 1685630291029
+    "title": "fghbfgb fghbgrfht",
+    "description": "sthgret werth wrthg",
+    "severity": "4",
+    "labels": [],
+    "creator": {
+      "_id": "u102",
+      "fullname": "Muki Ba"
+    },
+    "_id": "JAfkh",
+    "createdAt": 1687867524782
   }
 ]
